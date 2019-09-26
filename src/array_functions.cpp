@@ -11,23 +11,29 @@
 #include "array_functions.h"
 #include <iostream>
 #include <fstream>
+#include <string>
+
+using namespace std;
 //============================================================================
 //	stuff you will need
 //============================================================================
+
+string myArray[constants::MAX_WORDS];
+int next_slot;
+
 //zero out array that tracks words and their occurrences
 void clearArray(){
-
+	next_slot = 0;
 }
 
 //how many unique words are in array
 int getArraySize(){
-	//int size = my_sizeof(this)/my_sizeof(this[0]);
 	return 0;
 }
 
 //get data at a particular location
 std::string getArrayWordAt(int i){
-	return "";
+	return myArray[i];
 }
 int getArrayWord_NumbOccur_At(int i){
 	return 0;
@@ -61,7 +67,11 @@ bool processFile(std::fstream &myfstream){
 /*take 1 line and extract all the tokens from it
 feed each token to processToken for recording*/
 void processLine(std::string &myString){
-
+	stringstream ss(myString);
+	string tempToken;
+	while(getline(ss, tempToken, constants::CHAR_TO_SEARCH_FOR)){
+		processToken(tempToken);
+	}
 }
 
 /*Keep track of how many times each token seen*/
@@ -76,6 +86,7 @@ void processToken(std::string &token){
   in this case Project2 with the .project and .cProject files*/
 bool openFile(std::fstream& myfile, const std::string& myFileName,
 		std::ios_base::openmode mode/* = std::ios_base::in*/){
+	myfile.open();
 	return false;
 }
 
