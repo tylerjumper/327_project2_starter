@@ -50,7 +50,7 @@ bool processFile(std::fstream &myfstream){
 	std::string line;
 
 	while(!myInputfile.eof()){
-		//getline(myInputFile, line);
+		getline(myInputfile, line);
 		std::cout<<line;
 	}
 
@@ -74,10 +74,10 @@ void processToken(std::string &token){
 
 /*if you are debugging the file must be in the project parent directory
   in this case Project2 with the .project and .cProject files*/
-//bool openFile(std::fstream& myfile, const std::string& myFileName,
-//		std::ios_base::openmode mode = std::ios_base::in){
-//	return false;
-//}
+bool openFile(std::fstream& myfile, const std::string& myFileName,
+		std::ios_base::openmode mode/* = std::ios_base::in*/){
+	return false;
+}
 
 /*iff myfile is open then close it*/
 void closeFile(std::fstream& myfile){
